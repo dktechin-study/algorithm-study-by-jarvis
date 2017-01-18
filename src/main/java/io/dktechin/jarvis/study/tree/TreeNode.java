@@ -1,0 +1,25 @@
+package io.dktechin.jarvis.study.tree;
+
+public class TreeNode<T extends Comparable<T>> {
+
+    T value;
+
+    TreeNode<T> left;
+
+    TreeNode<T> right;
+
+    public TreeNode(T value) {
+        this.value = value;
+    }
+
+    public TreeNode(T value, TreeNode<T> left, TreeNode<T> right) {
+        this.value = value;
+        this.left = left;
+        this.right = right;
+    }
+
+
+    public void accept(TreeVisitor<T> visitor) {
+
+    }
+}
