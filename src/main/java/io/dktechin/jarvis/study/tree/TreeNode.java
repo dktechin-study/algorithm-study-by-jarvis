@@ -18,8 +18,11 @@ public class TreeNode<T extends Comparable<T>> {
         this.right = right;
     }
 
-
-    public void accept(TreeVisitor<T> visitor) {
-
+    public int childSize() {
+        return left != null && right != null
+                ? 2
+                : left == null && right == null
+                    ? 0
+                    : 1;
     }
 }
