@@ -37,7 +37,7 @@ public class BinaryTree<T extends Comparable<T>> {
         return count;
     }
 
-    public void remove() {
+    public void remove(T value) {
 
     }
 

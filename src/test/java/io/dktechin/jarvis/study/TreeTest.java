@@ -13,8 +13,10 @@ public class TreeTest {
         binaryTree.add(3);
         binaryTree.add(4);
         binaryTree.add(2);
+        binaryTree.add(10);
+        binaryTree.add(7);
 
-        Assert.assertEquals(4, binaryTree.size());
+        Assert.assertEquals(6, binaryTree.size());
 
         PrintAction<Integer> action = new PrintAction<>();
 
@@ -28,6 +30,10 @@ public class TreeTest {
 
         System.out.print("Post order : ");
         binaryTree.order(new PostOrderVisitor<>(action));
+        System.out.println();
+
+        System.out.print("Level order : ");
+        binaryTree.order(new LevelOrderVisitor<>(action));
         System.out.println();
     }
 }
