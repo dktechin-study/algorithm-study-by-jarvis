@@ -3,10 +3,6 @@ package io.dktechin.jarvis.study.hanoi;
 public class Hanoi {
 
     public int run(int n, int a, int b) {
-        if ( n <= 0 ) {
-            return 0;
-        }
-
         process(a, b);
 
         if ( n == 1 ) {
@@ -25,7 +21,7 @@ public class Hanoi {
 
     public static void main(String[] args) {
         Hanoi hanoi = new Hanoi();
-        int count = hanoi.run(4, 1, 2);
+        int count = hanoi.run(3, 1, 2);
         System.out.println("이동 횟수 : " + count);
     }
 }
