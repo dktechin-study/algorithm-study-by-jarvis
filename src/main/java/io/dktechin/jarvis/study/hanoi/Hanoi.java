@@ -1,17 +1,21 @@
 package io.dktechin.jarvis.study.hanoi;
 
+/**
+ * 1차. 오답이였음.
+ */
 public class Hanoi {
 
-    public int run(int n, int a, int b) {
-        process(a, b);
-
-        if ( n == 1 ) {
+    public int run(int n, int from, int to, int via) {
+        if ( n == 0 ) {
             return 1;
         }
 
-        return 1
-                + run(n - 1, a, b % 3 + 1)
-                + run(n - 1, a % 3 + 1, b % 3 + 1);
+        int count = 0;
+        count += run(n - 1, from, via, to);
+        process(from, to);
+        count += run(n - 1, via, to, from);
+
+        return count;
     }
 
 
@@ -21,7 +25,7 @@ public class Hanoi {
 
     public static void main(String[] args) {
         Hanoi hanoi = new Hanoi();
-        int count = hanoi.run(3, 1, 2);
-        System.out.println("이동 횟수 : " + count);
+        int count = hanoi.run(3, 1, 2, 3);
+        System.out.println("이동 횟수 : " + (count - 1));
     }
 }
