@@ -1,4 +1,4 @@
-package io.dktechin.jarvis.study.test;
+package io.dktechin.jarvis.study.gcd;
 
 public class GreatestCommonDivisor {
 
