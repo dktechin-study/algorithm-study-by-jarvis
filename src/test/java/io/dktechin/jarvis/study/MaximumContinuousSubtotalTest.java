@@ -23,5 +23,10 @@ public class MaximumContinuousSubtotalTest {
         Assert.assertEquals(20360, maximumContinuousSubtotal2.maxSubtotal());
         System.out.println(maximumContinuousSubtotal2.maxSubtotal());
 
+
+        /* Case 3*/
+        MaximumContinuousSubtotal maximumContinuousSubtotal3 = new MaximumContinuousSubtotal(-3, -1, -2);
+        Assert.assertEquals(-1, maximumContinuousSubtotal3.maxSubtotal());
+        System.out.println(maximumContinuousSubtotal3.maxSubtotal());
     }
 }
