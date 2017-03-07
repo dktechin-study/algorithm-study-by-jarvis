@@ -30,3 +30,4 @@ public class FenceTest {
         System.out.println();
     }
 }
+
