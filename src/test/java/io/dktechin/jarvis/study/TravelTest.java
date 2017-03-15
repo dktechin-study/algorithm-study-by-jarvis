@@ -30,5 +30,14 @@ public class TravelTest {
                 { 6, 6, 9, 4, 8 }
         };
         assertEquals(18, travel.minimumCost(case2));
+
+        int[][] case3 = new int[][] {
+                { 0, 2, 9, -1 },
+                { 1, 0, 6, 4 },
+                { -1, 7, 0, 8 },
+                { 6, 3, -1, 0 }
+        };
+        assertEquals(21, travel.minimumCost(case3));
+        /* length[ v1, v3, v4, v2, v1 ] */
     }
 }
