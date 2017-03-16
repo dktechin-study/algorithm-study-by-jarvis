@@ -2,6 +2,7 @@ package io.dktechin.jarvis.algo.acmicpc.a1697;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Scanner;
 
 /**
  * 문제 : 숨바꼭질
@@ -46,6 +47,17 @@ public class HideAndSeek {
         counts[ to ] = counts[ position ] + 1;
         visited[ to ] = true;
         queue.add(to);
+    }
+
+    public static void main(String[] args) {
+        HideAndSeek hideAndSeek = new HideAndSeek();
+        Scanner scanner = new Scanner(System.in);
+
+        int x = scanner.nextInt();
+        int y = scanner.nextInt();
+
+        System.out.println(hideAndSeek.solve(x, y));
+        
     }
 
 }
