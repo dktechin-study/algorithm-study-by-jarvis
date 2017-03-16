@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * 숨바꼭질
+ * 문제 : 숨바꼭질
  * BFS로 풀기
  *
  * 문제 출처 : https://www.acmicpc.net/problem/1697
