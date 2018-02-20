@@ -4,11 +4,11 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class TryHelloWorldTest {
+public class LargestSquareTest {
 
     @Test
     public void test() {
-        TryHelloWorld test = new TryHelloWorld();
+        LargestSquare test = new LargestSquare();
         char[][] board = {
                 {'X', 'O', 'O', 'O', 'X'},
                 {'X', 'O', 'O', 'O', 'O'},
@@ -56,7 +56,7 @@ public class TryHelloWorldTest {
 
     @Test
     public void test2() {
-        TryHelloWorld test = new TryHelloWorld();
+        LargestSquare test = new LargestSquare();
         char[][] board = {
                 {'X', 'O', 'O', 'O', 'X'},
                 {'X', 'O', 'O', 'O', 'O'},

@@ -1,13 +1,13 @@
 package io.dktechin.jarvis.algo.programmers;
 
 /**
- * 가장 큰 저사각형 찾기
+ * 가장 큰 정사각형 찾기
  * Level 4
  *
  * https://programmers.co.kr/learn/challenge_codes/188
  *
  */
-class TryHelloWorld {
+class LargestSquare {
     private final static char OK = 'O';
 
     public int findLargestSquare(char[][] board) {
@@ -84,7 +84,7 @@ class TryHelloWorld {
     }
 
     public static void main(String[] args) {
-        TryHelloWorld test = new TryHelloWorld();
+        LargestSquare test = new LargestSquare();
         char[][] board = {
                 {'X', 'O', 'O', 'O', 'X'},
                 {'X', 'O', 'O', 'O', 'O'},
