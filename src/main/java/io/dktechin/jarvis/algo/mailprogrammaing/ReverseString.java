@@ -13,20 +13,23 @@ import java.util.stream.Stream;
  */
 public class ReverseString {
 
-    public static String reverse(String str) {
-        String[] strings = str.split(" ");
-         Stream.Builder<String> builder = Stream.builder();
-        for (String string : strings) {
-            char[] characters = string.toCharArray();
-            char[] reverseChars = new char[characters.length];
-            for (int i = characters.length; i > 0 ; i--) {
-                reverseChars[ characters.length - i ] = characters[i - 1];
-            }
-            builder.add(new String(reverseChars));
+    public static String reverse(String string) {
+        return Stream.of(string.split(" "))
+                .map(str -> convertString(reverse(str.toCharArray())))
+                .collect(Collectors.joining(" "));
+    }
+
+    private static char[] reverse(char[] characters) {
+        char[] reverseChars = new char[characters.length];
+        for (int i = characters.length; i > 0 ; i--) {
+            reverseChars[ characters.length - i ] = characters[i - 1];
         }
 
-        return builder.build()
-                .collect(Collectors.joining(" "));
+        return reverseChars;
+    }
+
+    private static String convertString(char[] characters) {
+        return new String(characters);
     }
 
     public static void main(String[] args) {
