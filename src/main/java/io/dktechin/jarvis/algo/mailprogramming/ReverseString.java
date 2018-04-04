@@ -1,4 +1,4 @@
-package io.dktechin.jarvis.algo.mailprogrammaing;
+package io.dktechin.jarvis.algo.mailprogramming;
 
 import java.util.stream.Collectors;
 import java.util.stream.Stream;

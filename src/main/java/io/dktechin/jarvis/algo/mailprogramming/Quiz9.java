@@ -1,4 +1,4 @@
-package io.dktechin.jarvis.algo.mailprogrammaing;
+package io.dktechin.jarvis.algo.mailprogramming;
 
 /*
 *    안녕하세요, 매일프로그래밍 이번주 문제입니다.

@@ -1,6 +1,5 @@
 package io.dktechin.jarvis.algo.mailprogramming;
 
-import io.dktechin.jarvis.algo.mailprogrammaing.TwoSum;
 import org.junit.Assert;
 import org.junit.Test;
 

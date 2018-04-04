@@ -1,6 +1,6 @@
 package io.dktechin.jarvis.algo.programmers;
 
-import io.dktechin.jarvis.algo.mailprogrammaing.MaxRectangle;
+import io.dktechin.jarvis.algo.mailprogramming.MaxRectangle;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

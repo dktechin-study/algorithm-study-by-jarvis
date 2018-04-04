@@ -1,4 +1,4 @@
-package io.dktechin.jarvis.algo.mailprogrammaing;
+package io.dktechin.jarvis.algo.mailprogramming;
 
 import java.util.HashSet;
 import java.util.Set;
