@@ -25,10 +25,42 @@ public class HavenOfPedestrian {
     static class Solution {
         int MOD = 20170805;
 
+        /* DP */
         public int solution(int m, int n, int[][] cityMap) {
-            return new Navi(m, n, cityMap).solution(0, 0, 0, 0);
+            int[][] dpFromAbove = new int[m + 1][n + 1];
+            int[][] dpFromLeft = new int[m + 1][n + 1];
+            int[][] map = new int[m + 1][n + 1];
+            for (int i = 0; i < m; i++) {
+                System.arraycopy(cityMap[i], 0, map[i + 1], 1, n);
+            }
+
+            dpFromAbove[1][0] = 0;
+            dpFromLeft[0][1] = 1;
+            for (int y = 1; y <= m; y++) {
+                for (int x = 1; x <= n; x++) {
+                    if (map[y][x] != 1) {
+                        if (map[y - 1][x] == 0) {           // 우회전, 자회전 가능
+                            dpFromAbove[y][x] += (dpFromAbove[y - 1][x] + dpFromLeft[y - 1][x]) % MOD;
+                        } else if (map[y - 1][x] == 2) {    // 윗쪽에서 온것만 가능
+                            dpFromAbove[y][x] += dpFromAbove[y - 1][x];
+                        }
+                        dpFromAbove[y][x] %= MOD;
+
+                        if (map[y][x - 1] == 0) {           // 우회전, 자회전 가능
+                            dpFromLeft[y][x] += (dpFromAbove[y][x - 1] + dpFromLeft[y][x - 1]) % MOD;
+                        } else if (map[y][x - 1] == 2) {    // 오른쪽에서 온것만 가능
+                            dpFromLeft[y][x] += dpFromLeft[y][x - 1];
+                        }
+                        dpFromAbove[y][x] %= MOD;
+                    }
+
+                }
+            }
+
+            return (dpFromAbove[m][n] + dpFromLeft[m][n]) % MOD;
         }
 
+        /* DFS */
         static class Navi {
             static int MOD = 20170805;
             int[][] cityMap;
@@ -50,22 +82,17 @@ public class HavenOfPedestrian {
                 }
 
                 int answer = 0;
-                if (x + 1 < n) {
-                    /* 우회전 금지 */
-                    if (cityMap[y][x + 1] != 1 &&
-                            (cityMap[y][x] == 0 || (cityMap[y][x] == 2 && x == priorToX + 1)) ) {
-                        answer += solution(x + 1, y, x, y);
-                        answer %= MOD;
-                    }
+                /* 우회전 금지 */
+                if (x + 1 < n &&
+                        cityMap[y][x + 1] != 1 &&
+                        (cityMap[y][x] == 0 || (cityMap[y][x] == 2 && x == priorToX + 1))) {
+                    answer = (answer + solution(x + 1, y, x, y)) % MOD;
                 }
 
-                if (y + 1 < m) {
-                    /* 좌회전 금지 */
-                    if (cityMap[y + 1][x] != 1 &&
-                            (cityMap[y][x] == 0 || (cityMap[y][x] == 2 && y == priorToY + 1))) {
-                        answer += solution(x, y + 1, x, y);
-                        answer %= MOD;
-                    }
+                /* 좌회전 금지 */
+                if (y + 1 < m && cityMap[y + 1][x] != 1 &&
+                        (cityMap[y][x] == 0 || (cityMap[y][x] == 2 && y == priorToY + 1))) {
+                    answer = (answer + solution(x, y + 1, x, y)) % MOD;
                 }
 
                 return answer;
